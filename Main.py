@@ -1,14 +1,19 @@
 from typing import List
 
-def quick_sort(data, low, high) -> List[int]:
-    # Write code here
-
-
+def quick_sort(array):
+    size=len(data)
+    for index in range(size):
+        small_index = index
+        for jindex in range(index+1, size):
+            if array[jindex] < array[small_index]:
+                small_index = jindex
+        array[small_index],array[index] = array[index], array[small_index]
+    print(array)
 input_data = input()
 data = []
 for item in input_data.split(', '):
-  if item.isnumeric():
-    data.append(int(item))
-  elif item.lstrip("-").isnumeric():
-    data.append(int(item))
-print(quick_sort(data, 0, len(data)-1))
+    if item.isnumeric():
+        data.append(int(item))
+    elif item.lstrip("-").isnumeric():
+        data.append(int(item))
+quick_sort(data)
